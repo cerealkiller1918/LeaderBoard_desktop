@@ -19,11 +19,11 @@ public class Json {
         json = new Gson().fromJson(s, JsonObject.class);
     }
 
-    public JsonArray getScheduleArray() {
+    private JsonArray getScheduleArray() {
         return json.get("Schedule").getAsJsonArray();
     }
 
-    public String getData(int gameId, String data){
+    private String getData(int gameId, String data){
         JsonArray array = getScheduleArray();
         for (JsonElement j : array) {
             JsonObject k = (JsonObject) j;
