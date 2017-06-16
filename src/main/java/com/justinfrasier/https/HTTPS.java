@@ -25,7 +25,6 @@ public class HTTPS {
             return response.toString();
 
         }catch (IOException e){
-            e.printStackTrace();
             return null;
         }
     }

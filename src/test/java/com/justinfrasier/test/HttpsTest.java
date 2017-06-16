@@ -16,4 +16,11 @@ public class HttpsTest {
         assertEquals(response,output);
     }
 
+    @Test
+    public void CheckScheduleFail(){
+        HTTPS https = new HTTPS();
+        String output = https.sendGet("https://justinfrasier.com/12345");
+        assertEquals(null, output);
+    }
+
 }
