@@ -7,12 +7,11 @@ import org.junit.Test;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
+import java.awt.image.DataBufferByte;
 import java.io.IOException;
-import java.net.MalformedURLException;
 import java.net.URL;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.*;
 
 public class TeamLogoTest {
 
@@ -27,11 +26,17 @@ public class TeamLogoTest {
         assertNotNull(uut.logo("ARI"));
     }
 
-
+    @Test
     public void checksThatBothMatch() throws IOException {
         URL url = new URL("http://justinfrasier.com/teamPic/ARI.png");
         BufferedImage image = ImageIO.read(url);
-        assertEquals(image, uut.logo("ARI"));
+        byte[] test = ((DataBufferByte) image.getData().getDataBuffer()).getData();
+        byte[] output = ((DataBufferByte) uut.logo("ARI").getData().getDataBuffer()).getData();
+        assertArrayEquals(test,output);
     }
 
+    @Test
+    public void checkTheCatch(){
+        assertNull(uut.logo("test"));
+    }
 }
