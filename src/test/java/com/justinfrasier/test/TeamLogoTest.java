@@ -8,6 +8,7 @@ import org.junit.Test;
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferByte;
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 
@@ -28,8 +29,9 @@ public class TeamLogoTest {
 
     @Test
     public void checksThatBothMatch() throws IOException {
-        URL url = new URL("http://justinfrasier.com/teamPic/ARI.png");
-        BufferedImage image = ImageIO.read(url);
+        ClassLoader classLoader = getClass().getClassLoader();
+        File file = new File(classLoader.getResource("ARI.png").getFile());
+        BufferedImage image = ImageIO.read(file);
         byte[] test = ((DataBufferByte) image.getData().getDataBuffer()).getData();
         byte[] output = ((DataBufferByte) uut.logo("ARI").getData().getDataBuffer()).getData();
         assertArrayEquals(test,output);

@@ -13,8 +13,7 @@ public class Json {
 
     private JsonObject json;
 
-    public Json() {
-        String url = "https://www.fantasyfootballnerd.com/service/schedule/json/yhnkisjxcbsm/";
+    public Json(String url) {
         String s = new HTTPS().sendGet(url);
         json = new Gson().fromJson(s, JsonObject.class);
     }

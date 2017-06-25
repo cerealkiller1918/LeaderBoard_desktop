@@ -15,9 +15,9 @@ public class JsonTest {
 
     @Before
     public void before(){
-      json = new Json();
+//        json = new Json("https://www.fantasyfootballnerd.com/service/schedule/json/yhnkisjxcbsm/");
+        json = new Json("http://justinfrasier.com/test/test.json");
     }
-
     @Test
     public void currentWeekTest() throws Exception{
         assertEquals(1,json.currentWeek());
