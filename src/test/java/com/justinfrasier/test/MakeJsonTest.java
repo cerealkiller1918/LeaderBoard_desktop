@@ -26,7 +26,6 @@ public class MakeJsonTest {
         assertFalse(file.makeJsonFile("test","test",1,"test/test.json"));
     }
 
-    @Test
     public void Break(){
         assertFalse(true);
     }
