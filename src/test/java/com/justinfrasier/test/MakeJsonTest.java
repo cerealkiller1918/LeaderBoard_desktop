@@ -25,9 +25,16 @@ public class MakeJsonTest {
     public void FailMakingTheFile(){
         assertFalse(file.makeJsonFile("test","test",1,"test/test.json"));
     }
+
+    @Test
+    public void Break(){
+        assertFalse(true);
+    }
     @After
     public void cleanUp(){
         File file = new File("StoreState.json");
         if(file.exists()) file.delete();
     }
+
+
 }
