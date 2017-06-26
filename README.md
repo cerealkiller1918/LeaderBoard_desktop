@@ -1,0 +1,1 @@
+https://travis-ci.org/cerealkiller1918/LeaderBoard_desktop.svg?branch=master
