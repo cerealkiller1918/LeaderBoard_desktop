@@ -1,6 +1,5 @@
+# **Welcome To LeaderBoard**
 
-
-#Welcome To LeaderBoard
 This is a project was started in a internship class and it was never completed. 
 This my trying to complete it.
 
