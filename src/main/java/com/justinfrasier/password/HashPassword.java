@@ -17,9 +17,7 @@ public class HashPassword {
                  stringBuilder.append(Integer.toString((bytes[i] & 0xff) + 0x100, 16).substring(1));
              }
              generatedPassword = stringBuilder.toString();
-         }catch (NoSuchAlgorithmException|UnsupportedEncodingException e){
-
-         }
+         }catch (NoSuchAlgorithmException|UnsupportedEncodingException e){}
          return generatedPassword;
     }
 
