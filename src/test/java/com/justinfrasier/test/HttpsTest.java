@@ -8,7 +8,6 @@ import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileInputStream;
 
-import static javax.print.attribute.standard.ReferenceUriSchemesSupported.HTTP;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
 
