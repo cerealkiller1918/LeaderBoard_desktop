@@ -18,12 +18,12 @@ public class MakeJsonTest {
     }
     @Test
     public void MakesFile(){
-        assertTrue(file.makeJsonFile("test","test",1,"StoreState.json"));
+        assertTrue(file.makeJsonFile("test","test","test",1,"StoreState.json"));
     }
 
     @Test
     public void FailMakingTheFile(){
-        assertFalse(file.makeJsonFile("test","test",1,"test/test.json"));
+        assertFalse(file.makeJsonFile("test","test","test",1,"test/test.json"));
     }
 
     public void Break(){

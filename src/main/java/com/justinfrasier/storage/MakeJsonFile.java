@@ -6,10 +6,11 @@ import java.io.IOException;
 
 public class MakeJsonFile {
 
-    public boolean makeJsonFile(String user, String hashPassword, int lastGame, String fileName){
+    public boolean makeJsonFile(String user, String hashPassword, String salt,  int lastGame, String fileName){
         JsonObject jsonObject = new JsonObject();
         jsonObject.addProperty("UserName",user);
         jsonObject.addProperty("PassHash", hashPassword);
+        jsonObject.addProperty("Salt:", salt);
         jsonObject.addProperty("LastGameLookAt", lastGame);
 
         try{
