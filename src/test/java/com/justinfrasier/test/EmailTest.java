@@ -26,4 +26,7 @@ public class EmailTest {
 
     @Test  //False
     public void emailCheckAtFirst(){assertFalse(uut.validate("@gmail.com"));}
+
+    @Test
+    public void remove(){assertFalse(true);}
 }
