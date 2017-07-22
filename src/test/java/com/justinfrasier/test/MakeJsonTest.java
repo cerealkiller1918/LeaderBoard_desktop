@@ -13,22 +13,13 @@ public class MakeJsonTest {
 
     MakeJsonFile file;
     @Before
-    public void before(){
-        file = new MakeJsonFile();
-    }
+    public void before(){file = new MakeJsonFile();}
     @Test
-    public void MakesFile(){
-        assertTrue(file.makeJsonFile("test","test","test",1,"StoreState.json"));
-    }
+    public void MakesFile(){assertTrue(file.makeJsonFile("test","test","test",1,"StoreState.json"));}
 
     @Test
-    public void FailMakingTheFile(){
-        assertFalse(file.makeJsonFile("test","test","test",1,"test/test.json"));
-    }
+    public void FailMakingTheFile(){assertFalse(file.makeJsonFile("test","test","test",1,"test/test.json"));}
 
-    public void Break(){
-        assertFalse(true);
-    }
     @After
     public void cleanUp(){
         File file = new File("StoreState.json");
