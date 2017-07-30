@@ -1,4 +1,4 @@
-package com.justinfrasier.Logger;
+package com.justinfrasier.logger;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -17,7 +17,7 @@ public class Log {
             fileName = dateFormat.format(date);
             FileWriter fileWriter = new FileWriter(fileName + ".log");
             writer = new BufferedWriter(fileWriter);
-            writer.write(fileName+'\n');
+            writer.write("Log File \n"+fileName+'\n');
         }catch (IOException e){}
     }
 

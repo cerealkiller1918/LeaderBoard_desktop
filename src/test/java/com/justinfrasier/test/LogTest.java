@@ -1,6 +1,6 @@
 package com.justinfrasier.test;
 
-import com.justinfrasier.Logger.Log;
+import com.justinfrasier.logger.Log;
 
 import org.junit.After;
 import org.junit.Before;
@@ -16,12 +16,14 @@ public class LogTest {
     @Before
     public void setup(){
         log = new Log();
+        log.writeln("Hello World");
         log.close();
     }
 
     @Test
     public void checkForLogFile(){
         File file = new File(log.getFileName()+".log");
+
         assertTrue(file.exists());
     }
 
