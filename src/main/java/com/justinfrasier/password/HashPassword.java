@@ -1,5 +1,7 @@
 package com.justinfrasier.password;
 
+import com.justinfrasier.logger.Log;
+
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -17,7 +19,11 @@ public class HashPassword {
                  stringBuilder.append(Integer.toString((bytes[i] & 0xff) + 0x100, 16).substring(1));
              }
              generatedPassword = stringBuilder.toString();
-         }catch (NoSuchAlgorithmException|UnsupportedEncodingException e){}
+         }catch (NoSuchAlgorithmException|UnsupportedEncodingException e){
+             Log log = new Log();
+             log.writeln(e.getMessage());
+             log.close();
+         }
          return generatedPassword;
     }
 

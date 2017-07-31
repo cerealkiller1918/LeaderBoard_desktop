@@ -1,5 +1,7 @@
 package com.justinfrasier.https;
 
+import com.justinfrasier.logger.Log;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -27,6 +29,9 @@ public class HTTPS {
 
 
         }catch (IOException e){
+            Log log = new Log();
+            log.writeln(e.getStackTrace().toString());
+            log.close();
             return null;
         }
     }

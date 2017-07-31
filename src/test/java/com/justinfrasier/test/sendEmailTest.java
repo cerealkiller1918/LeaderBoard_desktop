@@ -14,8 +14,8 @@ public class sendEmailTest {
         email = new Email();
     }
 
-    //@Test
+    @Test
     public void check_if_sent(){
-        assertTrue(email.sendEmail());
+        assertTrue(email.sendEmail("test"));
     }
 }

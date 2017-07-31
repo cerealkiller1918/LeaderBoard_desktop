@@ -1,5 +1,7 @@
 package com.justinfrasier.picture;
 
+import com.justinfrasier.logger.Log;
+
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.net.URL;
@@ -14,6 +16,9 @@ public class TeamLogo {
             BufferedImage img = read(url);
             return img;
         }catch (IOException e){
+            Log log = new Log();
+            log.writeln(e.getMessage());
+            log.close();
             return null;
         }
     }
