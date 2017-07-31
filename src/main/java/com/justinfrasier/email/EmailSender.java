@@ -1,7 +1,10 @@
 package com.justinfrasier.email;
 
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.Properties;
 
 public class EmailSender {
@@ -18,14 +21,31 @@ public class EmailSender {
         this.fileNane = fileName;
     }
 
-    public void sendEmail(){
+    public boolean sendEmail(){
         Properties properties = System.getProperties();
 
-
+        return true;
     }
 
     private String getBody(){
-        File file = new File(fileNane)
+        BufferedReader reader = null;
+        String body ="";
+        try {
+            File file = new File(fileNane);
+            if (file.exists()) {
+                reader = new BufferedReader(new FileReader(file));
+                String line;
+                while((line=reader.readLine())!=null){
+                    body += line;
+                }
+            }
+        }catch (IOException e){ }
+        finally {
+            try {
+                reader.close();
+            }catch (IOException e){}
+        }
+        return body;
     }
 
 }
