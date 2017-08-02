@@ -30,7 +30,7 @@ public class HTTPS {
 
         }catch (IOException e){
             Log log = new Log();
-            log.writeln(e.getStackTrace().toString());
+            log.writeln(e.getMessage());
             log.close();
             return null;
         }

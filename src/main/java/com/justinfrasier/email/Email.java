@@ -10,9 +10,9 @@ public class Email {
     //Emailing the Log File
     public boolean sendEmail(String body){
 
-        String email = "leaderboardmobileapp@gmail.com",
-                host = "smtp.gmail.com",
-                port = "465";
+        String email = JsonEmail.getUserName();
+        String host = "smtp.gmail.com";
+        String port = "465";
 
 
         Properties props = new Properties();
@@ -30,8 +30,8 @@ public class Email {
         Session session = Session.getInstance(props,auth);
         session.setDebug(false);
 
-        String to = "cerealkiller1918@gmail.com";
-        String from = "leaderboardmobileapp@gmail.com";
+        String to = JsonEmail.getsendto();
+        String from = JsonEmail.getUserName();
         String subject = "Log";
         Message message = new MimeMessage(session);
         try{
@@ -48,7 +48,7 @@ public class Email {
 
     private class SMTPAuthenticator extends Authenticator{
         public PasswordAuthentication getPasswordAuthentication(){
-            return new PasswordAuthentication("leaderboardmobileapp@gmail.com","Citation10");
+            return new PasswordAuthentication(JsonEmail.getUserName(),JsonEmail.getPassword());
         }
     }
 }
