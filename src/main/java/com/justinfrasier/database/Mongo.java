@@ -1,9 +1,7 @@
 package com.justinfrasier.database;
 
-
-import com.mongodb.Block;
 import com.mongodb.MongoClient;
-import com.mongodb.client.FindIterable;
+import com.mongodb.MongoClientURI;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import org.bson.Document;
@@ -16,8 +14,9 @@ public class Mongo {
     private MongoClient client;
     private MongoDatabase database;
 
-    public Mongo(String url_mongo_db) {
-        client = new MongoClient(url_mongo_db);
+    public Mongo(String uri_mongo_db) {
+        MongoClientURI uri = new MongoClientURI(uri_mongo_db);
+        client = new MongoClient(uri);
         database = client.getDatabase("leaderBoard");
     }
 
@@ -29,14 +28,12 @@ public class Mongo {
     }
 
     public boolean register(String userName, String hashPassword, String email){
-        try {
-            MongoCollection<Document> collection = getLoginCollection();
-            Document doc = new Document("username", userName)
-                    .append("password", hashPassword)
-                    .append("email", email);
-            collection.insertOne(doc);
-            return true;
-        }catch (Exception e){return false;}
+        MongoCollection<Document> collection = getLoginCollection();
+        Document doc = new Document("username", userName)
+                .append("password", hashPassword)
+                .append("email", email);
+        collection.insertOne(doc);
+        return true;
     }
 
     public String getPassword(String userName){
